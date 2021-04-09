@@ -7,4 +7,4 @@ spring:
     config:
       server:
         native:
-          search-locations: file:G:/Users/zhaojn/IdeaProjects/learnspringcloud/config-location/{application}
+          search-locations: file:G:../../config-location/{application}

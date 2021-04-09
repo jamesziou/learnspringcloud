@@ -1,2 +1,0 @@
-example.property: prod
-spring.jpa.database: "PostGreSql"
