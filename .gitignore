@@ -26,3 +26,5 @@ hs_err_pid*
 
 .idea/
 */target/
+license-service/src/main/resources/
+license-service/src/test/
