@@ -1,0 +1,2 @@
+example.property: default
+spring.jpa.database: "MySql"
