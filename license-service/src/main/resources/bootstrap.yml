@@ -5,11 +5,16 @@ spring:
     active: default
   cloud:
     config:
-      uri: http://localhost:8081/config-service
+      uri: http://localhost:8080/config-service
       enabled: true
   config:
     import:
 server:
-  port: 8080
+  port: 8081
   servlet:
     context-path: /license-service
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,info, health

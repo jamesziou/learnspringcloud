@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8080
   servlet:
     context-path: /config-service
 spring:
@@ -8,5 +8,7 @@ spring:
   cloud:
     config:
       server:
+        encrypt:
+          enabled: false
         native:
           search-locations: file:H:/dev_workspace/learnspringcloud/config-location/{application}

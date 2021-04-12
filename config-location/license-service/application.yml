@@ -5,8 +5,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/license?characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false
-    username: sysadmin
-    password: 123456
+    username: "{cipher}8cb9849b3f8922e990a24460bb48e5743c0d9fa8ca8699c2cc628f0985dd1187"
+    password: "{cipher}cfb904db7b8ac48c9c8774808f5f43e8c24de63f7a88fc6afe912911c313a84c"
     tomcat:
       test-while-idle: true
       validation-query: SELECT 1

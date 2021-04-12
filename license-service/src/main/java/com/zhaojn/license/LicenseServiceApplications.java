@@ -13,6 +13,7 @@ package com.zhaojn.license;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
@@ -22,6 +23,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * @create 2021/4/9
  * @since 1.0.0
  */
+@RefreshScope
 @SpringBootApplication
 @EnableJpaRepositories(basePackages = "com.zhaojn.license.db.repository")
 public class LicenseServiceApplications {
