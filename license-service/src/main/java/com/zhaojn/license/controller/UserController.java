@@ -14,6 +14,8 @@ package com.zhaojn.license.controller;
 import com.zhaojn.license.db.entry.UserEntity;
 import com.zhaojn.license.service.UserService;
 import com.zhaojn.license.vo.ResponseEntityVo;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RequestMapping("/user")
 @RestController
+@Slf4j
 public class UserController {
     @Autowired
     private UserService userService;
@@ -38,6 +41,7 @@ public class UserController {
     @GetMapping("/{user_code}/")
     public ResponseEntity<ResponseEntityVo> getUserByCode(
             @PathVariable("user_code") String userCode) {
+        String logId = MDC.get("requestId");
         UserEntity user = userService.getUserByUserCode(userCode);
         HttpStatus status = HttpStatus.OK;
         if (user == null) {

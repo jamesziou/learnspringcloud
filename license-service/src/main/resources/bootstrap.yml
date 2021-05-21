@@ -7,8 +7,6 @@ spring:
     config:
       uri: http://localhost:8080/config-service
       enabled: true
-  config:
-    import:
 server:
   port: 8081
   servlet:
