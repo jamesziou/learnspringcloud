@@ -1,11 +1,10 @@
-server:
-  port: 8080
-  servlet:
-    context-path: /config-service
 spring:
+  application:
+    name: config-service
   cloud:
     config:
       server:
+        bootstrap: true
         encrypt:
           enabled: false
         git:
@@ -14,8 +13,35 @@ spring:
           search-paths: /**
           username: "{cipher}c98383494897e557bb661f7fee48a83f5ff4e260dd5deca10c617949b77b84d3"
           password: "{cipher}529e1d7de4c447408a9694d561c3fc91adc6fd146492328aaa04a75aab1a81cc"
+server:
+  port: 8080
+  #最大请求头大小
+  max-http-header-size: 8KB
+  servlet:
+    context-path: /config-service
+  tomcat:
+    uri-encoding: UTF-8
+    threads:
+      #最小线程数
+      min-spare: 10
+      #最大线程数
+      max: 10
+    #最大链接数
+    max-connections: 50
+    #最大等待队列长度
+    accept-count: 10
+    #最多请求体大小
+    max-http-form-post-size: 16KB
+    #链接超时
+    connection-timeout: 2000
 management:
   endpoints:
     web:
       exposure:
         include: refresh,info, health
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7000/eureka-server/eureka
+  instance:
+    prefer-ip-address: true

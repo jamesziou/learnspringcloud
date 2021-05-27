@@ -12,6 +12,7 @@
     <modules>
         <module>config-service</module>
         <module>license-service</module>
+        <module>eureka-server</module>
     </modules>
 
     <properties>

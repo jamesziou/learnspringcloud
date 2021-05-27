@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: eureka-server
+server:
+  #最大请求头大小
+  max-http-header-size: 8KB
+  port: 7000
+  servlet:
+    context-path: /eureka-server
+  tomcat:
+    uri-encoding: UTF-8
+    threads:
+      #最小线程数
+      min-spare: 10
+      #最大线程数
+      max: 10
+    #最大链接数
+    max-connections: 50
+    #最大等待队列长度
+    accept-count: 10
+    #最多请求体大小
+    max-http-form-post-size: 16KB
+    #链接超时
+    connection-timeout: 2000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,info, health
+eureka:
+  server:
+    #清理无效节点的时间间隔
+    eviction-interval-timer-in-ms: 30000
+    #测试环境关闭自我保护(生产打开)
+    enable-self-preservation: false
+    #开启自我保护的系数(如果在15分钟内超过85%的客户端节点都没有正常的心跳)
+    renewal-percent-threshold: 0.85
+  client:
+    #只有一个server就不开启注册自己了
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:${server.port}/eureka-server/eureka/
+  instance:
+    instance-id: eureka-server-001
+    prefer-ip-address: false
+    hostname: ${spring.application.name}
