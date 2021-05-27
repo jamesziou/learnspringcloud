@@ -7,7 +7,7 @@ spring:
     active: default
   cloud:
     config:
-      uri: http://localhost:8080/config-service
+      uri: http://192.168.123.198:8000/config-service
       enabled: true
 server:
   #最大请求头大小

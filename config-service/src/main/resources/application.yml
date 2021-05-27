@@ -16,7 +16,7 @@ spring:
           username: "{cipher}c98383494897e557bb661f7fee48a83f5ff4e260dd5deca10c617949b77b84d3"
           password: "{cipher}529e1d7de4c447408a9694d561c3fc91adc6fd146492328aaa04a75aab1a81cc"
 server:
-  port: 8080
+  port: 8000
   #最大请求头大小
   max-http-header-size: 8KB
   servlet:
