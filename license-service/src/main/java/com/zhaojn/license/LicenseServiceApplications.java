@@ -13,6 +13,7 @@ package com.zhaojn.license;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.ApplicationPidFileWriter;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
@@ -29,6 +30,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 public class LicenseServiceApplications {
 
   public static void main(String[] args) {
-    SpringApplication.run(LicenseServiceApplications.class, args);
+    SpringApplication application = new SpringApplication(LicenseServiceApplications.class);
+    application.addListeners(new ApplicationPidFileWriter());
+    application.run(args);
   }
 }
