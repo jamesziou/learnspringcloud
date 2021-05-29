@@ -1,41 +1,35 @@
 spring:
   application:
-    name: config-service
+    name: api-gateway
   pid:
     file: D:/taobao_data/${spring.application.name}/pid/application.pid
+  profiles:
+    active: default
   cloud:
     config:
-      server:
-        bootstrap: true
-        encrypt:
-          enabled: false
-        git:
-          uri: http://${spring.cloud.config.server.git.username}@192.168.123.198:10080/r/online_platform_config.git
-          default-label: master
-          search-paths: /**
-          username: "{cipher}c98383494897e557bb661f7fee48a83f5ff4e260dd5deca10c617949b77b84d3"
-          password: "{cipher}529e1d7de4c447408a9694d561c3fc91adc6fd146492328aaa04a75aab1a81cc"
+      discovery:
+        enabled: true
+        service-id: config-service
+
 server:
-  port: 8000
   #最大请求头大小
   max-http-header-size: 8KB
-  servlet:
-    context-path: /config-service
+  port: 9000
   tomcat:
     uri-encoding: UTF-8
     threads:
       #最小线程数
-      min-spare: 10
+      min-spare: 20
       #最大线程数
-      max: 10
+      max: 20
     #最大链接数
-    max-connections: 50
+    max-connections: 100
     #最大等待队列长度
-    accept-count: 10
+    accept-count: 20
     #最多请求体大小
     max-http-form-post-size: 16KB
     #链接超时
-    connection-timeout: 2000
+    connection-timeout: 20000
     accesslog:
       enabled: true
       #格式
@@ -56,11 +50,12 @@ server:
       rotate: true
       #日志文件的字符编码
       encoding: UTF-8
+
 management:
   endpoints:
     web:
       exposure:
-        include: refresh,info, health
+        include: refresh,info,health,gateway
 eureka:
   client:
     fetch-registry: true
@@ -77,5 +72,6 @@ eureka:
     lease-expiration-duration-in-seconds: 15
     #服务刷新时间配置，每隔这个时间会主动心跳一次
     lease-renewal-interval-in-seconds: 5
-    metadata-map:
-      contextPath: ${server.servlet.context-path}
+logging:
+  level:
+    org.springframework.cloud.gateway: debug

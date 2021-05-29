@@ -7,12 +7,14 @@ spring:
     active: default
   cloud:
     config:
-      uri: http://192.168.123.198:8000/config-service
-      enabled: true
+      discovery:
+        enabled: true
+        service-id: config-service
+
 server:
   #最大请求头大小
   max-http-header-size: 8KB
-  port: 8081
+  port: 9010
   servlet:
     context-path: /license-service
   tomcat:
@@ -50,6 +52,7 @@ server:
       rotate: true
       #日志文件的字符编码
       encoding: UTF-8
+
 management:
   endpoints:
     web:
@@ -71,3 +74,5 @@ eureka:
     lease-expiration-duration-in-seconds: 15
     #服务刷新时间配置，每隔这个时间会主动心跳一次
     lease-renewal-interval-in-seconds: 5
+    metadata-map:
+      configPath: ${server.servlet.context-path}

@@ -16,6 +16,7 @@ import com.zhaojn.license.db.repository.UserEntityRepository;
 import com.zhaojn.license.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * 用户实现类<br>
