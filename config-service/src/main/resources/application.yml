@@ -3,6 +3,11 @@ spring:
     name: config-service
   pid:
     file: D:/taobao_data/${spring.application.name}/pid/application.pid
+  rabbitmq:
+    host: 192.168.123.198
+    port: 5672
+    username: "{cipher}731fae597e35ee8247b4787196bd46d4139cb4dff812055b738f7597be9450ab"
+    password: "{cipher}79dc0004ce80fdd816256f5e829c6dd1ed909fccfc9d0ebfdcc87154cd59cb70"
   cloud:
     config:
       server:
@@ -60,7 +65,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh,info, health
+        include: refresh,info,health,busrefresh
 eureka:
   client:
     fetch-registry: true
