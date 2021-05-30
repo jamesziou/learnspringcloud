@@ -61,11 +61,20 @@ server:
       rotate: true
       #日志文件的字符编码
       encoding: UTF-8
+
 management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
   endpoints:
     web:
       exposure:
-        include: refresh,info,health,busrefresh
+        include: refresh,health,busrefresh
+        exclude: '*'
+      base-path: /
+    enabled-by-default: false
+
 eureka:
   client:
     fetch-registry: true

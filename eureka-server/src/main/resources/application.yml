@@ -5,11 +5,20 @@ spring:
     file: D:/taobao_data/${spring.application.name}/pid/application.pid
 server:
   port: 7000
+
 management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
   endpoints:
     web:
       exposure:
-        include: refresh,info,health
+        include: health
+        exclude: '*'
+      base-path: /
+    enabled-by-default: false
+
 eureka:
   server:
     #测试环境关闭自我保护(生产打开)
