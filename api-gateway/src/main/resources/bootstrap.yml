@@ -15,41 +15,6 @@ server:
   #最大请求头大小
   max-http-header-size: 8KB
   port: 9000
-  tomcat:
-    uri-encoding: UTF-8
-    threads:
-      #最小线程数
-      min-spare: 20
-      #最大线程数
-      max: 20
-    #最大链接数
-    max-connections: 100
-    #最大等待队列长度
-    accept-count: 20
-    #最多请求体大小
-    max-http-form-post-size: 16KB
-    #链接超时
-    connection-timeout: 20000
-    accesslog:
-      enabled: true
-      #格式
-      pattern: "%t [%I] %{X-Forwarded-For}i %a %r %s (%D ms)"
-      #缓存日志定期刷新输出（建议设置为true，否则当有请求立即打印日志对服务的响应会有影响）
-      buffered: true
-      #日志文件路径，可以是相对于tomcat的路径也可是绝对路径
-      directory: D:/taobao_data/${spring.application.name}/logs/tomcat/logs
-      #放在日志文件名中的日期格式
-      file-date-format: .yyyy-MM-dd
-      #日志文件名前缀
-      prefix: access_log
-      #日志名后缀
-      suffix: .log
-      #推迟在文件名中加入日期标记，直到日志分割时
-      rename-on-rotate: false
-      #是否启用访问日志分割
-      rotate: true
-      #日志文件的字符编码
-      encoding: UTF-8
 
 management:
   server:
@@ -86,3 +51,5 @@ eureka:
 logging:
   level:
     org.springframework.cloud.gateway: debug
+  file:
+    path: D:/taobao_data/${spring.application.name}/logs/
