@@ -44,15 +44,21 @@ server:
       rotate: true
       #日志文件的字符编码
       encoding: UTF-8
+
 management:
+  server:
+    port: 7011
   endpoint:
     health:
+      enabled: true
       probes:
         enabled: true
   endpoints:
     web:
       exposure:
         include: health
+    enabled-by-default: false
+
 eureka:
   server:
     #清理无效节点的时间间隔

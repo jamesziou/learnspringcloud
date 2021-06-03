@@ -54,16 +54,17 @@ server:
       encoding: UTF-8
 
 management:
+  server:
+    port: 9011
   endpoint:
     health:
+      enabled: true
       probes:
         enabled: true
   endpoints:
     web:
       exposure:
         include: health
-        exclude: '*'
-      base-path: /
     enabled-by-default: false
 
 eureka:

@@ -20,6 +20,7 @@ spring:
           search-paths: /**
           username: "{cipher}c98383494897e557bb661f7fee48a83f5ff4e260dd5deca10c617949b77b84d3"
           password: "{cipher}529e1d7de4c447408a9694d561c3fc91adc6fd146492328aaa04a75aab1a81cc"
+
 server:
   port: 8000
   #最大请求头大小
@@ -63,17 +64,23 @@ server:
       encoding: UTF-8
 
 management:
+  server:
+    port: 8011
   endpoint:
+    refresh:
+      enabled: true
+    busrefresh:
+      enabled: true
     health:
+      enabled: true
       probes:
         enabled: true
   endpoints:
     web:
       exposure:
         include: refresh,health,busrefresh
-        exclude: '*'
-      base-path: /
     enabled-by-default: false
+
 
 eureka:
   client:
@@ -92,4 +99,4 @@ eureka:
     #服务刷新时间配置，每隔这个时间会主动心跳一次
     lease-renewal-interval-in-seconds: 5
     metadata-map:
-      contextPath: ${server.servlet.context-path}
+      configPath: ${server.servlet.context-path}
