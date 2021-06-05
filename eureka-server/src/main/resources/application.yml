@@ -47,7 +47,7 @@ server:
 
 management:
   server:
-    port: 7011
+    port: 7001
   endpoint:
     health:
       enabled: true

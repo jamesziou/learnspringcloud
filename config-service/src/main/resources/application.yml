@@ -65,7 +65,7 @@ server:
 
 management:
   server:
-    port: 8011
+    port: 8001
   endpoint:
     refresh:
       enabled: true
@@ -100,3 +100,8 @@ eureka:
     lease-renewal-interval-in-seconds: 5
     metadata-map:
       configPath: ${server.servlet.context-path}
+logging:
+  level:
+    org.springframework.cloud.config: debug
+  file:
+    path: D:/taobao_data/${spring.application.name}/logs/
