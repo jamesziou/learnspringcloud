@@ -20,8 +20,6 @@ management:
   server:
     port: 9001
   endpoint:
-    gateway:
-      enabled: true
     health:
       enabled: true
       probes:
@@ -29,7 +27,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,gateway
+        include: health,routes,filters
     enabled-by-default: false
 
 eureka:

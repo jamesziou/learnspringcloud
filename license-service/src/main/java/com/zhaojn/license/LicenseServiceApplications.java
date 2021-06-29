@@ -17,6 +17,7 @@ import org.springframework.boot.context.ApplicationPidFileWriter;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 
 /**
  * 鉴权启动类<br>
@@ -28,6 +29,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @RefreshScope
 @EnableEurekaClient
 @SpringBootApplication
+@EnableAuthorizationServer
 @EnableJpaRepositories(basePackages = "com.zhaojn.license.db.repository")
 public class LicenseServiceApplications {
 

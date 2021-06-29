@@ -31,5 +31,5 @@ public interface UserEntityRepository extends CrudRepository<UserEntity, String>
    * @param userCode 登录账号
    * @return 用户信息
    */
-  public UserEntity getUserByUserCode(String userCode);
+  UserEntity getUserByUserCode(String userCode);
 }
